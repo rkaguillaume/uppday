@@ -1,27 +1,48 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-4 offset-md-4">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h2 class="text-center">Mon profil</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :firstname,
+                      label: "Prénom",
+                      required: true,
+                      autofocus: true
+                      %>
+          <%= f.input :lastname,
+                      label: "Nom",
+                      required: true,
+                      autofocus: true
+                      %>
+          <%= f.input :company,
+                      label: "Structure",
+                      required: true,
+                      autofocus: true
+                      %>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true
+                      %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
           <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
+                      hint: "Laissez vide si vous ne souhaitez pas changer de mot de passe",
                       required: false,
+                      label: "Mot de passe",
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       required: false,
+                      label: "Confirmation du mot de passe",
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
+                      hint: "Entrez votre mot de passe actuel pour confirmez les changements",
+                      label: "Mot de passe actuel",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
         </div>
@@ -31,11 +52,6 @@
         </div>
       <% end %>
 
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
     </div>
   </div>
 </div>
