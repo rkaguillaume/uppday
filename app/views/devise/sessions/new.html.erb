@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-4 offset-md-4">
-      <h2>Log in</h2>
+      <h2 class="text-center">Se connecter</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
@@ -12,12 +12,19 @@
           <%= f.input :password,
                       required: false,
                       input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          <%= render "devise/shared/links" %>
+          <div>
+            <% if devise_mapping.rememberable? %>
+                <%= f.check_box :remember_me %> Se souvenir de moi
+            <% end %>
+            <span class="float-right">
+              <%= link_to "Mot de passe oublié", new_user_password_path %>
+            </span>
+          </div>
+          <br/>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class: 'btn btn-dark' %>
+          <%= f.button :submit, "Se connecter", class: 'btn btn-normal btn-block' %>
         </div>
       <% end %>
     </div>
