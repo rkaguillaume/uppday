@@ -20,3 +20,18 @@
 
 // CSS partials
  @import "components/index";
+
+
+body {
+  color: #565A5C;
+  background-color: #F8F8F8;
+  font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+ }
+
+a {
+  color: #00A699;
+}
+
+.container {
+  width: 80%;
+}
